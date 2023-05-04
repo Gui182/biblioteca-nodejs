@@ -25,4 +25,4 @@ async function searchFile(pathFile) {
     }
 }
 
-searchFile('./arquivos/texto.md')
+export default searchFile;
