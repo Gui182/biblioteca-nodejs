@@ -8,7 +8,7 @@ function linksExtract(text) {
         ({[obj[1]]: obj[2]})    
     )
 
-    return result;
+    return result.length !== 0 ? result : 'não há links no arquivo';
 }
 
 function treatError(erro) {
@@ -19,7 +19,7 @@ async function searchFile(pathFile) {
     try {
         const encoding = 'utf-8';
         const text = await fs.promises.readFile(pathFile, encoding);
-        console.log(linksExtract(text));
+        return linksExtract(text);
     } catch (error) {
         treatError(error)
     }
